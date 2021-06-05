@@ -5,6 +5,7 @@ import lombok.Data;
 public enum Permission {
     READ("read"),
     WRITE("write");
+
     private String permission;
 
     Permission(String permission) {

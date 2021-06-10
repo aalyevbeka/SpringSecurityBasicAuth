@@ -13,17 +13,18 @@ public class UserSecurity implements UserDetails {
 
     private String userName;
     private String password;
-    private List<SimpleGrantedAuthority> authorities;
+    private Role role;
 
-    public UserSecurity(String userName, String password, List<SimpleGrantedAuthority> authorities) {
+    public UserSecurity(String userName, String password, Role role) {
         this.userName = userName;
         this.password = password;
-        this.authorities = authorities;
+        this.role = role;
     }
 
     @Override
-    public Collection<? extends GrantedAuthority> getAuthorities() {
-        return authorities;
+    public Collection<? extends GrantedAuthority> getAuthorities()
+    {
+        return null;
     }
 
     @Override
@@ -55,11 +56,13 @@ public class UserSecurity implements UserDetails {
     public boolean isEnabled() {
         return true;
     }
+
+
     public static UserDetails from(User user){
-        return new org.springframework.security.core.userdetails.User(
+        return new UserSecurity(
             user.getUserName(),
                 user.getPassword(),
-                user.getRole().getAuthority()
+                user.getRole()
         );
     }
 }

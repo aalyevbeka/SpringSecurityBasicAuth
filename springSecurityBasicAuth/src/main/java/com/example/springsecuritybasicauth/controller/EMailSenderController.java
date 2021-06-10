@@ -23,7 +23,6 @@ public class EMailSenderController {
         emailSenderService.sendEmail(eMail);
             return new ResponseEntity("success", HttpStatus.ACCEPTED);
 
-
     }
 
 }

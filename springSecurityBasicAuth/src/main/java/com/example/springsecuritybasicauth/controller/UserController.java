@@ -32,7 +32,9 @@ public class UserController {
     }
 
     @GetMapping("/user")
-   @PreAuthorize("hasAuthority('read')")
+  // @PreAuthorize("hasAuthority('read')")
+  // @PreAuthorize("hasRole('USER')")
+
     public String user(){
         return "user";
     }
